@@ -3,12 +3,34 @@ package com.example.widgetapptest
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
+import android.content.Intent
 import android.widget.RemoteViews
+import androidx.core.net.toUri
 
 /**
  * Implementation of App Widget functionality.
  */
 class WidgetProvider : AppWidgetProvider() {
+    companion object {
+        fun updateAppWidget(
+            context: Context,
+            appWidgetManager: AppWidgetManager,
+            appWidgetId: Int
+        ) {
+
+            val intent = Intent(context, WidgetService::class.java)
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+            intent.data = intent.toUri(Intent.URI_INTENT_SCHEME).toUri()
+
+            val views = RemoteViews(context.packageName, R.layout.widget_provider)
+            views.setRemoteAdapter(R.id.stack_view, intent)
+            views.setEmptyView(R.id.stack_view, R.id.empty_view)
+
+            // Instruct the widget manager to update the widget
+            appWidgetManager.updateAppWidget(appWidgetId, views)
+        }
+    }
+
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
@@ -29,16 +51,3 @@ class WidgetProvider : AppWidgetProvider() {
     }
 }
 
-internal fun updateAppWidget(
-    context: Context,
-    appWidgetManager: AppWidgetManager,
-    appWidgetId: Int
-) {
-    val widgetText = context.getString(R.string.appwidget_text)
-    // Construct the RemoteViews object
-    val views = RemoteViews(context.packageName, R.layout.widget_provider)
-    views.setTextViewText(R.id.appwidget_text, widgetText)
-
-    // Instruct the widget manager to update the widget
-    appWidgetManager.updateAppWidget(appWidgetId, views)
-}
