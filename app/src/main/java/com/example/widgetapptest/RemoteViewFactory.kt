@@ -6,17 +6,17 @@ import android.widget.RemoteViewsService
 
 class RemoteViewFactory(private val mContext: Context) : RemoteViewsService.RemoteViewsFactory {
 
-    private val widgetItem = ArrayList<String>()
+    private val widgetItem = mutableListOf<WidgetItem>()
 
     override fun onCreate() {
 
     }
 
     override fun onDataSetChanged() {
-        widgetItem.add("1")
-        widgetItem.add("2")
-        widgetItem.add("3")
-        widgetItem.add("4")
+        widgetItem.add(WidgetItem(title = "1"))
+        widgetItem.add(WidgetItem(title = "2"))
+        widgetItem.add(WidgetItem(title = "3"))
+        widgetItem.add(WidgetItem(title = "4"))
     }
 
     override fun onDestroy() {
@@ -29,7 +29,7 @@ class RemoteViewFactory(private val mContext: Context) : RemoteViewsService.Remo
         val views = RemoteViews(mContext.packageName,
             R.layout.item_list_view
         ).apply {
-            setTextViewText(R.id.widget_item_text, widgetItem[position])
+            setTextViewText(R.id.widget_item_text, widgetItem[position].title)
         }
 
         return views
