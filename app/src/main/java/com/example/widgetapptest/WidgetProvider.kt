@@ -28,6 +28,8 @@ class WidgetProvider : AppWidgetProvider() {
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views)
+        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.stack_view)
+
     }
 
 

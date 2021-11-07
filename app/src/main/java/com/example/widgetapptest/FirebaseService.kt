@@ -17,7 +17,8 @@ object FirebaseService {
         val videoItems = ArrayList<WidgetItem>()
         liveItems.addOnSuccessListener { dataSnapshot ->
             dataSnapshot.children.forEach {
-                val videoItem = WidgetItem(title = it.child("title").value.toString())
+                val videoItem = WidgetItem(title = it.child("title").value.toString(),
+                                            thumbnail = it.child("thumbnailUrlWidget").value.toString())
                 videoItems.add(videoItem)
                 Log.i("widgetItemSnapshot", "${videoItems.size}")
             }
