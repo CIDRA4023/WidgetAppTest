@@ -1,25 +1,32 @@
 package com.example.widgetapptest
 
 import android.content.Context
+import android.os.SystemClock
+import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 
 class RemoteViewFactory(private val mContext: Context) : RemoteViewsService.RemoteViewsFactory {
 
-    private val widgetItem = mutableListOf<WidgetItem>()
+    private var widgetItem: ArrayList<WidgetItem> = ArrayList()
+
 
     override fun onCreate() {
+
+        widgetItem = FirebaseService.getVideoItem()
+
+        // RealtimeDatabaseからVideoItemを取得して表示させるために待機
+        SystemClock.sleep(5000)
 
     }
 
     override fun onDataSetChanged() {
-        widgetItem.add(WidgetItem(title = "1"))
-        widgetItem.add(WidgetItem(title = "2"))
-        widgetItem.add(WidgetItem(title = "3"))
-        widgetItem.add(WidgetItem(title = "4"))
+
+
     }
 
     override fun onDestroy() {
+        widgetItem.clear()
 
     }
 
@@ -29,8 +36,15 @@ class RemoteViewFactory(private val mContext: Context) : RemoteViewsService.Remo
         val views = RemoteViews(mContext.packageName,
             R.layout.item_list_view
         ).apply {
+            val title = widgetItem[position].title
+            Log.i("getViewAt", title)
             setTextViewText(R.id.widget_item_text, widgetItem[position].title)
         }
+
+
+        SystemClock.sleep(500)
+
+
 
         return views
     }
@@ -39,7 +53,7 @@ class RemoteViewFactory(private val mContext: Context) : RemoteViewsService.Remo
 
     override fun getViewTypeCount(): Int = 1
 
-    override fun getItemId(p0: Int): Long = 0
+    override fun getItemId(p0: Int): Long = p0.toLong()
 
-    override fun hasStableIds(): Boolean = false
+    override fun hasStableIds(): Boolean = true
 }

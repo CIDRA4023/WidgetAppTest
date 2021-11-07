@@ -11,24 +11,30 @@ import androidx.core.net.toUri
  * Implementation of App Widget functionality.
  */
 class WidgetProvider : AppWidgetProvider() {
-    companion object {
-        fun updateAppWidget(
-            context: Context,
-            appWidgetManager: AppWidgetManager,
-            appWidgetId: Int
-        ) {
 
-            val intent = Intent(context, WidgetService::class.java)
-            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
-            intent.data = intent.toUri(Intent.URI_INTENT_SCHEME).toUri()
+    private fun updateAppWidget(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int
+    ) {
 
-            val views = RemoteViews(context.packageName, R.layout.widget_provider)
-            views.setRemoteAdapter(R.id.stack_view, intent)
-            views.setEmptyView(R.id.stack_view, R.id.empty_view)
+        val intent = Intent(context, WidgetService::class.java)
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+        intent.data = intent.toUri(Intent.URI_INTENT_SCHEME).toUri()
 
-            // Instruct the widget manager to update the widget
-            appWidgetManager.updateAppWidget(appWidgetId, views)
-        }
+        val views = RemoteViews(context.packageName, R.layout.widget_provider)
+        setRemoteAdapter(context, views)
+        views.setEmptyView(R.id.stack_view, R.id.empty_view)
+
+        // Instruct the widget manager to update the widget
+        appWidgetManager.updateAppWidget(appWidgetId, views)
+    }
+
+
+
+
+    private fun setRemoteAdapter(context: Context, views: RemoteViews) {
+        views.setRemoteAdapter(R.id.stack_view, Intent(context, WidgetService::class.java))
     }
 
     override fun onUpdate(
