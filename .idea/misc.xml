@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/activity_main.xml" value="0.1390625" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/item_list_view.xml" value="0.25" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/new_app_widget.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/new_app_widget_configure.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/widget_provider.xml" value="0.1" />
       </map>
     </option>

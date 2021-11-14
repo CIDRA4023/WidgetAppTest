@@ -1,7 +1,10 @@
 package com.example.widgetapptest
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.os.SystemClock
+import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import com.bumptech.glide.Glide
@@ -48,6 +51,8 @@ class RemoteViewFactory(private val mContext: Context) : RemoteViewsService.Remo
             views.apply {
                 setTextViewText(R.id.widget_item_text, widgetItem[position].title)
                 setImageViewBitmap(R.id.imageView, bitmap)
+                setClickEvent(widgetItem[position].videoId)
+                Log.i("click", widgetItem[position].videoId)
             }
 
             SystemClock.sleep(500)
@@ -66,4 +71,24 @@ class RemoteViewFactory(private val mContext: Context) : RemoteViewsService.Remo
     override fun getItemId(p0: Int): Long = p0.toLong()
 
     override fun hasStableIds(): Boolean = true
+
+    private fun RemoteViews.setClickEvent(item: String) {
+        setOnClickEvent(item)
+
+    }
+
+
+    private fun RemoteViews.setOnClickEvent(url: String) {
+        // Actionの設定
+        val bundle = Bundle().apply {
+            putString(WidgetProvider.KEY_VIDEO_URL, url)
+        }
+        val intent = Intent().apply {
+            action = WidgetProvider.ACTION_CLICK_ITEM
+            putExtras(bundle)
+        }
+
+        setOnClickFillInIntent(R.id.widget_item_container, intent)
+    }
+
 }
