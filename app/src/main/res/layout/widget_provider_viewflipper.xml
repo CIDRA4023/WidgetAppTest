@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vf_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@drawable/shape_rounded_corners"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+
+    <!--android:flipInterval="1000"-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/shape_text_rounded"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="LIVE"
+        android:textColor="@android:color/background_light"
+        android:textSize="16sp" />
+
+    <AdapterViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:loopViews="true">
+        <!--        android:autoStart="true"-->
+        <!--        android:flipInterval="10000"-->
+    </AdapterViewFlipper>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical|end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_update"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/shape_button_update"
+            android:drawableStart="@drawable/ic_baseline_update_24"
+            android:text="更新"
+            android:textSize="12sp" />
+
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:background="@drawable/shape_button_circle"
+            android:src="@drawable/ic_baseline_arrow_left_24" />
+
+        <ImageButton
+            android:id="@+id/button_next"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:background="@drawable/shape_button_circle"
+            android:src="@drawable/ic_baseline_arrow_right_24" />
+
+        <!--        app:srcCompat="@drawable/ic_baseline_arrow_right_24"-->
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+<!--<LinearLayout-->
+<!--    android:id="@+id/vf_item_container"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_width="match_parent"-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical"-->
+
+<!--        >-->
+<!--&lt;!&ndash;        android:weightSum="10"&ndash;&gt;-->
+<!--        <AdapterViewFlipper-->
+<!--            android:id="@+id/view_flipper"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:autoStart="true"-->
+<!--            android:flipInterval="2000"-->
+
+<!--            android:loopViews="true">-->
+
+<!--        </AdapterViewFlipper>-->
+<!--        &lt;!&ndash;        android:layout_weight="8"&ndash;&gt;-->
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_weight="2"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:orientation="horizontal"/>&ndash;&gt;-->
+
+
+<!--    </LinearLayout>-->
+
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/empty_view"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:background="@color/purple_700"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="No Data"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textAlignment="center"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textColor="#ffffff"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textSize="20sp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:visibility="gone" />&ndash;&gt;-->
+
+
+
+<!--</LinearLayout>-->

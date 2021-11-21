@@ -24,7 +24,10 @@
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.example.widgetapptest.widget.CLICK_SHOT"/>
+                <action android:name="com.example.widgetapptest.widget.CLICK_ITEM"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ACTION_AUTO_UPDATE" />
             </intent-filter>
 
             <meta-data

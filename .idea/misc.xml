@@ -3,11 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/drawable-v21/app_widget_inner_view_background.xml" value="0.24259259259259258" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/drawable/shape_button_circle.xml" value="0.221875" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/drawable/shape_button_update.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/drawable/shape_image_rounded.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/drawable/shape_image_rounded_corners.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/drawable/shape_rounded_corners.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/drawable/shape_text_rounded.xml" value="0.221875" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/$R26U0YZ.xml" value="0.1" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/activity_main.xml" value="0.1390625" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/item_list_view.xml" value="0.25" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/item_view_flipper.xml" value="0.2" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/layout1.xml" value="0.1" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/layout2.xml" value="0.228125" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/new_app_widget.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/new_app_widget_configure.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/widget_provider.xml" value="0.1" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/widget_provider_viewflipper.xml" value="0.22" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/WidgetAppTest/app/src/main/res/layout/widget_vf_item.xml" value="0.25" />
       </map>
     </option>
   </component>
