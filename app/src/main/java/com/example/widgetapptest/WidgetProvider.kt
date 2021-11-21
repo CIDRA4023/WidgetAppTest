@@ -102,97 +102,44 @@ class WidgetProvider : AppWidgetProvider() {
         super.onReceive(context, intent)
 
 
+        when (intent.action) {
+            ACTION_NEXT -> {
+                val rv = RemoteViews(context.packageName, R.layout.widget_provider_viewflipper)
+                rv.showNext(R.id.view_flipper)
 
-        if (intent.action.equals(ACTION_NEXT)) {
-            Log.i("click", "clickNext")
-
-            val rv = RemoteViews(context.packageName, R.layout.widget_provider_viewflipper)
-            rv.showNext(R.id.view_flipper)
-
-
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                AppWidgetManager.INVALID_APPWIDGET_ID), rv
-            )
-
-        } else if (intent.action.equals(ACTION_BACK)) {
-            val rv = RemoteViews(context.packageName, R.layout.widget_provider_viewflipper)
-            rv.showPrevious(R.id.view_flipper)
-
-
-            AppWidgetManager.getInstance(context).updateAppWidget(
-                intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                    AppWidgetManager.INVALID_APPWIDGET_ID), rv
-            )
-        } else if (intent.action.equals(ACTION_UPDATE)) {
-            val appWidgetManager = AppWidgetManager.getInstance(context)
-            val appWidgetComponentName =
-                ComponentName(context.applicationContext, WidgetProvider::class.java)
-            val appWidgetIds = appWidgetManager.getAppWidgetIds(appWidgetComponentName)
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.view_flipper)
-        }
-////        } else if (intent.action.equals(ACTION_CLICK_ITEM)) {
-////            Log.i("click", "clickItem")
-////            val baseUrl = "https://www.youtube.com/watch?v="
-////            val videoUrl = intent.getStringExtra(KEY_VIDEO_URL)
-////            Log.i("click", "$videoUrl")
-////            val uri = Uri.parse(baseUrl + videoUrl)
-////            Intent(Intent.ACTION_VIEW, uri).let {
-////                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-////                context.startActivity(it)
-////            }
-////        }
-//
-        if (intent.action.equals(ACTION_CLICK_ITEM)) {
-
-            val baseUrl = "https://www.youtube.com/watch?v="
-            val videoUrl = intent.getStringExtra(KEY_VIDEO_URL)
-            Log.i("click", "$videoUrl")
-            val uri = Uri.parse(baseUrl + videoUrl)
-            Intent(Intent.ACTION_VIEW, uri).let {
-                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                context.startActivity(it)
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+                        AppWidgetManager.INVALID_APPWIDGET_ID), rv
+                )
             }
+            ACTION_BACK -> {
+                val rv = RemoteViews(context.packageName, R.layout.widget_provider_viewflipper)
+                rv.showPrevious(R.id.view_flipper)
+
+                AppWidgetManager.getInstance(context).updateAppWidget(
+                    intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+                        AppWidgetManager.INVALID_APPWIDGET_ID), rv
+                )
+            }
+            ACTION_UPDATE -> {
+                val appWidgetManager = AppWidgetManager.getInstance(context)
+                val appWidgetComponentName =
+                    ComponentName(context.applicationContext, WidgetProvider::class.java)
+                val appWidgetIds = appWidgetManager.getAppWidgetIds(appWidgetComponentName)
+                appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.view_flipper)
+            }
+            ACTION_CLICK_ITEM -> {
+                val baseUrl = "https://www.youtube.com/watch?v="
+                val videoUrl = intent.getStringExtra(KEY_VIDEO_URL)
+                Log.i("click", "$videoUrl")
+                val uri = Uri.parse(baseUrl + videoUrl)
+                Intent(Intent.ACTION_VIEW, uri).let {
+                    it.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    context.startActivity(it)
+                }
+            }
+
         }
-
-        //        when (intent.action) {
-//            ACTION_NEXT -> {
-//                val rv = RemoteViews(context.packageName, R.layout.widget_provider_viewflipper)
-//                rv.showNext(R.id.view_flipper)
-//
-//                AppWidgetManager.getInstance(context).updateAppWidget(
-//                    intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-//                        AppWidgetManager.INVALID_APPWIDGET_ID), rv
-//                )
-//            }
-//            ACTION_BACK -> {
-//                val rv = RemoteViews(context.packageName, R.layout.widget_provider_viewflipper)
-//                rv.showPrevious(R.id.view_flipper)
-//
-//                AppWidgetManager.getInstance(context).updateAppWidget(
-//                    intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-//                        AppWidgetManager.INVALID_APPWIDGET_ID), rv
-//                )
-//            }
-//            ACTION_UPDATE -> {
-//                val appWidgetManager = AppWidgetManager.getInstance(context)
-//                val appWidgetComponentName =
-//                    ComponentName(context.applicationContext, WidgetProvider::class.java)
-//                val appWidgetIds = appWidgetManager.getAppWidgetIds(appWidgetComponentName)
-//                appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.view_flipper)
-//            }
-//            ACTION_CLICK_ITEM -> {
-//                val baseUrl = "https://www.youtube.com/watch?v="
-//                val videoUrl = intent.getStringExtra(KEY_VIDEO_URL)
-//                Log.i("click", "$videoUrl")
-//                val uri = Uri.parse(baseUrl + videoUrl)
-//                Intent(Intent.ACTION_VIEW, uri).let {
-//                    it.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-//                    context.startActivity(it)
-//                }
-//            }
-
-//        }
     }
 }
 
